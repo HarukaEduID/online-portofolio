@@ -1,58 +1,36 @@
 <div class="row" id="profile">
   <div class="col-md-9">
-    <h2>Feby Artandi</h2>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <h2><%= @profile.full_name %></h2>
+    <p><%= @profile.about %></p>
 
     <dl>
       <dt>Skill</dt>
       <dd>
-        <span class="label label-default">css</span>
-        <span class="label label-default">ruby</span>
-        <span class="label label-default">mysql</span>
-        <span class="label label-default">git</span>
-        <span class="label label-default">php</span>
+        <% @profile.skills.split(',').each do |skill| %>
+        <span class="label label-default"><%= skill %></span>
+        <% end %>
       </dd>
     </dl>
   </div>
   <div class="col-md-3">
-    <img src="https://placehold.it/263x263" class="img-responsive img-profile">
+    <img src="<%= @profile.image_url %>" class="img-responsive img-profile">
   </div>
 </div>
 
 <div class="row" id="my-experience">
   <div class="col-md-12">
     <h2>Experience</h2>
+    <% @experiences.each do |experience| %>
     <dl>
       <dt>
-        <h3>SD ABC</h3>
+        <h3><%= experience.title %></h3>
         <strong>20 Des 1988 - 31 Jan 1990</strong>
       </dt>
       <dd>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p><%= experience.description %></p>
       </dd>
     </dl>
-
-    <dl>
-      <dt>
-        <h3>SMK ABC</h3>
-        <strong>20 Des 1988 - 31 Jan 1990</strong>
-      </dt>
-      <dd>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </dd>
-    </dl>
-
-    <dl>
-      <dt>
-        <h3>Universitas ABC</h3>
-        <strong>20 Des 1988 - 31 Jan 1990</strong>
-      </dt>
-      <dd>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </dd>
-    </dl>    
+    <% end %>
   </div>
 </div>
 
@@ -60,33 +38,17 @@
   <div class="col-md-12">
     <h2>Portfolio</h2>
     <div class="row">
+      <% @portfolios.each do |portfolio| %>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <img src="http://placehold.it/350x150">
           <div class="caption">
-            <h3>Portfolio 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <h3><%= portfolio.title %></h3>
+            <p><%= portfolio.description %></p>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="http://placehold.it/350x150">
-          <div class="caption">
-            <h3>Portfolio 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="http://placehold.it/350x150">
-          <div class="caption">
-            <h3>Portfolio 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
