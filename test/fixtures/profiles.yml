@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  skils: MyString
+  about: MyString
+  date_of_birth: 2016-05-23
+
+two:
+  full_name: MyString
+  skils: MyString
+  about: MyString
+  date_of_birth: 2016-05-23

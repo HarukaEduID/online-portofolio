@@ -1,0 +1,67 @@
+rails new online_portfolio -d mysql
+
+setup mysql config
+rake db:create
+
+create controller home
+    - home_controler.rb
+
+        ````
+        class HomeController < ApplicationController
+          def index
+            render layout: "home"
+          end
+        end
+
+        ````
+    - set router root
+        root 'home#index'
+    - add assets file
+    - create template for home
+        create folder called home in views directory
+        create file index.html.erb
+
+create controller profile
+    - profile_controler.rb
+
+        ````
+        class ProfileController < ApplicationController
+          def edit
+            
+          end
+        end
+
+        ````
+    - create migration
+        rails generate model profile full_name:string skills:string about:string image_url:string
+        rake db:migrate
+    - set router profile
+        get 'profile' => 'profile#edit'
+    - create template for profile
+        create folder called profile in views directory
+        create file edit.html.erb
+
+        ````
+        
+        ````
+
+update homepage to show profile data
+    - update homepage controller and view
+
+create experience
+    - create schaffold 
+        rails g scaffold experience title:string start_date:date end_date:date description:text
+        rake db:migrate
+
+implement auth
+    - add gem devise in Gemfile
+        gem 'devise'
+        rails generate devise:install
+        rails generate devise User
+        rake db:migrate
+        rake db:seed
+
+create portfolio
+    - create schaffold 
+        rails g scaffold portfolio title:string date:date description:text tags:string
+        rake db:seed
